@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+
+/* Estilos globais adicionais */
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Scrollbar customizada para a lista de stories */
+.stories-scroll::-webkit-scrollbar {
+  display: none;
+}
+.stories-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
