@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddStoryButton } from './add-story-button';
+import { localStorageMock } from '@mocks/localStorage.mock';
 
 describe('AddStoryButton', () => {
+  localStorageMock();
   let component: AddStoryButton;
   let fixture: ComponentFixture<AddStoryButton>;
 

@@ -5,14 +5,18 @@ const TTL_MS = 24 * 60 * 60 * 1000; // 24 horas em ms
 
 @Injectable({ providedIn: 'root' })
 export class StoryService {
-  // Signal reativo com a lista de stories
+  /**
+   * Lista de stories, expirada automaticamente após 24h. O sinal é usado para reatividade no componente.
+   */
   stories = signal<Story[]>([]);
 
   constructor() {
     this.loadFromStorage();
   }
 
-  /** Carrega stories do LocalStorage e remove as expiradas */
+  /**
+   * Carrega as stories do localStorage, filtrando as expiradas. As válidas são salvas de volta para manter o armazenamento limpo.
+   */
   private loadFromStorage(): void {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return;

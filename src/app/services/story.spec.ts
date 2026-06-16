@@ -1,13 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Story } from './story';
+import { StoryService } from './story';
+import { localStorageMock } from '@mocks/localStorage.mock';
 
-describe('Story', () => {
-  let service: Story;
+describe('StoryService', () => {
+  localStorageMock();
+  let service: StoryService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Story);
+    service = TestBed.inject(StoryService);
   });
 
   it('should be created', () => {
