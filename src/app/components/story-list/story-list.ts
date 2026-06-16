@@ -10,7 +10,6 @@ import { StoryService } from '@services/story';
   standalone: true,
   imports: [AddStoryButton, StoryItem, StoryViewer],
   templateUrl: './story-list.html',
-  styleUrl: './story-list.css',
 })
 export class StoryList {
   viewerOpen = signal(false);

@@ -7,7 +7,6 @@ import { Story } from '@models/story.model';
   standalone: true,
   imports: [],
   templateUrl: './story-item.html',
-  styleUrl: './story-item.css',
 })
 export class StoryItem {
   story = input.required<Story>();

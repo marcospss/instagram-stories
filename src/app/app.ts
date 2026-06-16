@@ -6,7 +6,6 @@ import { StoryList } from '@components/story-list/story-list';
   standalone: true,
   imports: [StoryList],
   templateUrl: './app.html',
-  styleUrls: ['./app.css'],
 })
 export class App {
   protected readonly title = signal('instagram-stories');

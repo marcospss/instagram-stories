@@ -7,7 +7,6 @@ import { StoryService } from '@services/story';
   standalone: true,
   imports: [],
   templateUrl: './story-viewer.html',
-  styleUrl: './story-viewer.css',
 })
 export class StoryViewer implements OnDestroy {
   stories = input.required<Story[]>();
