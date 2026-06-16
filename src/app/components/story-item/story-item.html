@@ -1,1 +1,16 @@
-<p>story-item works!</p>
+<div class="flex flex-col items-center gap-1 cursor-pointer min-w-[72px]" (click)="storyClicked.emit(story())">
+  <!-- Anel de gradiente (estilo Instagram) -->
+  <div class="p-[2px] rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600">
+    <div class="p-[2px] bg-black rounded-full">
+      <img [src]="story().imageBase64" [alt]="story().username" class="w-14 h-14 rounded-full object-cover" />
+    </div>
+  </div>
+  <!-- Nome do usuário -->
+  <span class="text-white text-xs text-center w-16 truncate">
+    {{ story().username }}
+  </span>
+  <!-- Tempo decorrido -->
+  <span class="text-gray-400 text-[10px]">
+    {{ storyService.getTimeRemaining(story().createdAt) }}
+  </span>
+</div>

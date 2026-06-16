@@ -1,10 +1,12 @@
 import { Component, signal } from '@angular/core';
+import { StoryList } from '@components/story-list/story-list';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [StoryList],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'],
 })
 export class App {
   protected readonly title = signal('instagram-stories');

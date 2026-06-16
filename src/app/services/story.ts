@@ -1,12 +1,12 @@
 import { Injectable, signal } from '@angular/core';
-import { Story as StoryModel } from '@models/story.model';
+import { Story } from '@models/story.model';
 const STORAGE_KEY = 'instagram_stories';
 const TTL_MS = 24 * 60 * 60 * 1000; // 24 horas em ms
 
 @Injectable({ providedIn: 'root' })
-export class Story {
+export class StoryService {
   // Signal reativo com a lista de stories
-  stories = signal<StoryModel[]>([]);
+  stories = signal<Story[]>([]);
 
   constructor() {
     this.loadFromStorage();
@@ -17,7 +17,7 @@ export class Story {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return;
 
-    const all: StoryModel[] = JSON.parse(raw);
+    const all: Story[] = JSON.parse(raw);
     const now = Date.now();
     const valid = all.filter((s) => now - s.createdAt < TTL_MS);
 
@@ -28,7 +28,7 @@ export class Story {
 
   /** Adiciona uma nova story com imagem em Base64 */
   addStory(imageBase64: string): void {
-    const newStory: StoryModel = {
+    const newStory: Story = {
       id: crypto.randomUUID(),
       imageBase64,
       createdAt: Date.now(),

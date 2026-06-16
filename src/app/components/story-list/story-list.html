@@ -1,1 +1,23 @@
-<p>story-list works!</p>
+<!-- Barra de stories -->
+<div class="bg-black border-b border-gray-800 py-3 px-2">
+  <div class="flex gap-4 overflow-x-auto stories-scroll">
+    <!-- Botão adicionar story -->
+    <app-add-story-button (storyAdded)="onStoryAdded($event)" />
+
+    <!-- Stories existentes -->
+    @for (story of storyService.stories(); track story.id) {
+    <app-story-item [story]="story" (storyClicked)="openViewer($event)" />
+    }
+
+    <!-- Estado vazio -->
+    @empty {
+    <div class="flex items-center text-gray-500 text-sm pl-2 py-4">
+      Nenhuma story ainda. Adicione a primeira! 👆
+    </div>
+    }
+  </div>
+</div>
+
+<!-- Viewer de stories -->
+<app-story-viewer [stories]="storyService.stories()" [initialIndex]="viewerIndex()" [isOpen]="viewerOpen()"
+  (closed)="closeViewer()" />

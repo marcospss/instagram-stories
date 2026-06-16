@@ -1,1 +1,20 @@
-<p>add-story-button works!</p>
+<div class="flex flex-col items-center gap-1 cursor-pointer" (click)="triggerUpload()">
+  <!-- Avatar com botão + -->
+  <div class="relative w-16 h-16">
+    <div class="w-16 h-16 rounded-full bg-gray-800 border-2 border-gray-600
+                    flex items-center justify-center">
+      <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+      </svg>
+    </div>
+    <!-- Badge + no canto -->
+    <div class="absolute bottom-0 right-0 w-5 h-5 bg-blue-500 rounded-full
+                    flex items-center justify-center border-2 border-black">
+      <span class="text-white text-xs font-bold leading-none">+</span>
+    </div>
+  </div>
+  <span class="text-white text-xs">Adicionar</span>
+
+  <!-- Input de arquivo oculto -->
+  <input #fileInput type="file" accept="image/*" class="hidden" (change)="onFileSelected($event)" />
+</div>
